@@ -1,0 +1,77 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boletos {
+    padding: 4.5rem 0 5rem 0;
+
+    h3 {
+        text-align: center;
+        color: v.$blanco;
+    }
+
+    .contenedor-boletos {
+        @include m.tablet {
+            @include m.grid(2, 5rem);
+        }
+    }
+}
+
+.pase {
+    color: v.$negro;
+
+    .nombre-pase {
+        text-align: center;
+        color: v.$blanco;
+        font-size: 2.4rem;
+        margin: 2rem 0 1rem 0;
+    }
+
+    &-header,
+    &-footer {
+        p {
+            text-align: center;
+            color: v.$blanco;
+            padding: .5rem;
+            margin: 0;
+        }
+    }
+
+    &-header {
+        // ampersand para poner la clase del padre
+        background-color: v.$rosa;
+
+        p {
+            text-transform: uppercase;
+            font-size: 1.6rem;
+        }
+    }
+
+    &-body {
+        background-color: v.$blanco;
+
+        ul {
+            @include m.resetear-lista;
+
+            li,
+            :nth-child(even) {
+                background-color: v.$blanco;
+                padding: 1rem;
+                border-bottom: 1px solid #e1e1e1;
+
+                &:last-of-type {
+                    border: none;
+                }
+            }
+        }
+
+    }
+
+    &-footer {
+        background-color: v.$morado;
+
+        p {
+            font-size: 2.4rem;
+            font-weight: 700;
+        }
+    }
+}

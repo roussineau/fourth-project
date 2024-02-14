@@ -1,0 +1,39 @@
+// Los mixins son para codigo que vayamos a reutilizar muchas veces. Se pueden pensar como funciones.
+
+@use 'variables' as v;
+
+@mixin phone {
+    @media (min-width: 480px) {
+        @content; // para que el mq soporte el codigo que escribiremos al usar el mixin phone.
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL) {
+        @content;
+    }
+}
+
+@mixin grid($columnas, $espaciado) {
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $espaciado;
+}
+
+@mixin resetear-lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
